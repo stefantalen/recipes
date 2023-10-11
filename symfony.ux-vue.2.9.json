@@ -1,0 +1,87 @@
+{
+    "manifests": {
+        "symfony/ux-vue": {
+            "manifest": {
+                "bundles": {
+                    "Symfony\\UX\\Vue\\VueBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "assets/": "assets/"
+                },
+                "conflict": {
+                    "symfony/webpack-encore-bundle": "<2.0",
+                    "symfony/flex": "<1.20.0 || >=2.0.0,<2.3.0"
+                },
+                "add-lines": [
+                    {
+                        "file": "webpack.config.js",
+                        "content": "\n    .enableVueLoader()",
+                        "position": "after_target",
+                        "target": ".splitEntryChunks()"
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "import { registerVueControllerComponents } from '@symfony/ux-vue';",
+                        "position": "top",
+                        "warn_if_missing": true
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "registerVueControllerComponents(require.context('./vue/controllers', true, /\\.vue$/));",
+                        "position": "bottom",
+                        "warn_if_missing": true,
+                        "requires": "symfony/webpack-encore-bundle"
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "// If you prefer to lazy-load your Vue.js controller components, in order to reduce the JavaScript bundle the smallest as possible",
+                        "position": "bottom",
+                        "warn_if_missing": true,
+                        "requires": "symfony/webpack-encore-bundle"
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "// and degrade performances as little as possible, you can use the following line instead:",
+                        "position": "bottom",
+                        "warn_if_missing": true,
+                        "requires": "symfony/webpack-encore-bundle"
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "registerVueControllerComponents(require.context('./vue/controllers', true, /\\.vue$/, 'lazy'));",
+                        "position": "bottom",
+                        "warn_if_missing": true,
+                        "requires": "symfony/webpack-encore-bundle"
+                    },
+                    {
+                        "file": "assets/app.js",
+                        "content": "registerVueControllerComponents();",
+                        "position": "bottom",
+                        "warn_if_missing": true,
+                        "requires": "symfony/asset-mapper"
+                    }
+                ]
+            },
+            "files": {
+                "assets/vue/controllers/Hello.vue": {
+                    "contents": [
+                        "<template>",
+                        "    <div>Hello {{ name }}!</div>",
+                        "</template>",
+                        "",
+                        "<script setup>",
+                        "    defineProps({",
+                        "        name: String",
+                        "    });",
+                        "</script>",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "ed1ea9e8c8d191b61e4cb8d6011bb2aa716b7f79"
+        }
+    }
+}
