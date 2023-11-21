@@ -1,0 +1,21 @@
+{
+    "manifests": {
+        "symfony/phrase-translation-provider": {
+            "manifest": {
+                "add-lines": [
+                    {
+                        "file": "config/packages/translation.yaml",
+                        "position": "after_target",
+                        "target": "        providers:",
+                        "content": "            phrase:\n                dsn: '%env(PHRASE_DSN)%'"
+                    }
+                ],
+                "env": {
+                    "#1": "PHRASE_DSN=phrase://PROJECT_ID:API_TOKEN@default?userAgent=Symfony-Phrase-Provider"
+                }
+            },
+            "files": [],
+            "ref": "cfa42c19c56d5842ae9a39432a202f5400241b0f"
+        }
+    }
+}

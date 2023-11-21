@@ -1,0 +1,46 @@
+{
+    "aliases": {
+        "crowdin-translation-provider": "symfony/crowdin-translation-provider",
+        "crowdintranslationprovider": "symfony/crowdin-translation-provider",
+        "loco-translation-provider": "symfony/loco-translation-provider",
+        "locotranslationprovider": "symfony/loco-translation-provider",
+        "lokalise-translation-provider": "symfony/lokalise-translation-provider",
+        "lokalisetranslationprovider": "symfony/lokalise-translation-provider",
+        "phrase-translation-provider": "symfony/phrase-translation-provider",
+        "phrasetranslationprovider": "symfony/phrase-translation-provider",
+        "translation": "symfony/translation",
+        "translations": "symfony/translation",
+        "translator": "symfony/translation"
+    },
+    "recipes": {
+        "symfony/crowdin-translation-provider": [
+            "5.3"
+        ],
+        "symfony/loco-translation-provider": [
+            "5.3"
+        ],
+        "symfony/lokalise-translation-provider": [
+            "5.3"
+        ],
+        "symfony/phrase-translation-provider": [
+            "6.4"
+        ],
+        "symfony/translation": [
+            "3.3",
+            "5.3",
+            "6.3"
+        ]
+    },
+    "recipe-conflicts": [],
+    "versions": [],
+    "branch": "main",
+    "is_contrib": false,
+    "_links": {
+        "repository": "github.com/symfony/recipes",
+        "origin_template": "{package}:{version}@github.com/symfony/recipes:main",
+        "recipe_template": "https://raw.githubusercontent.com/symfony/recipes/flex/pull-1259/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json",
+        "archived_recipes_template": "https://raw.githubusercontent.com/symfony/recipes/flex/pull-1259/archived/{package_dotted}/{ref}.json",
+        "archived_recipes_template_relative": "archived/{package_dotted}/{ref}.json"
+    }
+}
